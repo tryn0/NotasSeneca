@@ -3,10 +3,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:NotasSeneca"
         mc:Ignorable="d"
         Title="Notas Séneca | Alumnado" Height="450" Width="800" Loaded="alumnadoCargado" MaxHeight="450" MaxWidth="800" MinHeight="450" MinWidth="800" Closed="salir">
-    <Grid>
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    
+    <Grid Name="principal">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="2*"/>
@@ -40,23 +50,23 @@
             <TextBlock TextAlignment="Center" Name="direccion">DIRECCION ALUMNO</TextBlock>
             <TextBlock TextAlignment="Center" Name="telefono_emergencia">TELEFONO EMERGENCIA ALUMNO</TextBlock>
 
-            <TextBlock TextAlignment="Center" Margin="0,25,0,0">Nota del alumno:</TextBlock>
+            <TextBlock TextAlignment="Center" Margin="0,25,0,0" Name="notaAlumno">Nota del/a alumno/a:</TextBlock>
             <StackPanel Orientation="Horizontal">
-                <ComboBox Name="clasesAlumno" Margin="0,10,0,0" Height="20" Width="110"></ComboBox>
-                <TextBox Height="20" Width="25" Margin="10,10,0,0" Visibility="Hidden" Name="notaAsignatura"></TextBox>
+                <ComboBox Name="clasesAlumno" Margin="0,10,0,0" Height="25" Width="110"></ComboBox>
+                <TextBox Height="25" Width="25" Margin="10,10,0,0" Visibility="Hidden" Name="notaAsignatura"></TextBox>
             </StackPanel>
-            <Button Width="50" Margin="0,10,0,0" Visibility="Hidden" Name="enviarNotaAlumno">Enviar</Button>
+            <Button Width="75" Height="25" Margin="0,10,0,0" Visibility="Hidden" Name="enviarNotaAlumno">Enviar</Button>
         </StackPanel>
 
         <!-- Botonera alumnado -->
         <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center">
-            <Button Grid.Column="2" Grid.Row="3" Height="25" Width="75" Margin="0,0,50,0" Visibility="Hidden" Name="anterior" Click="anterior_alumno">Anterior</Button>
-            <Button Grid.Column="2" Grid.Row="3" Height="25" Width="75" Margin="50,0,0,0" Click="siguiente_alumno" Name="siguiente">Siguiente</Button>
+            <Button Grid.Column="2" Grid.Row="3" Height="31" Width="85" Margin="0,0,50,0" Visibility="Hidden" Name="anterior" Click="anterior_alumno">Anterior</Button>
+            <Button Grid.Column="2" Grid.Row="3" Height="31" Width="100" Margin="50,0,0,0" Click="siguiente_alumno" Name="siguiente">Siguiente</Button>
         </StackPanel>
 
         <!-- Botón salir -->
         <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center">
-            <Button Width="75" Height="25" Click="salirAlumnado">Salir</Button>
+            <Button Width="75" Height="25" Name="salirBoton" Click="salirAlumnado" Style="{DynamicResource MaterialDesignFlatButton}">Salir</Button>
         </StackPanel>
         
     </Grid>

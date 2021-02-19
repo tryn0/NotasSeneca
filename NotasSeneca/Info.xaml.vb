@@ -18,7 +18,7 @@ Public Class Info
                 Dim auxiliar As Dashboard = w
                 If auxiliar.clases IsNot Nothing Then
                     padre = auxiliar
-                    temaOscuro = padre.temaOscuro
+                    temaOscuro = Not padre.temaOscuro
                 End If
             End If
         Next
@@ -42,6 +42,7 @@ Public Class Info
         titulo.Foreground = New SolidColorBrush(texto)
         textoDetalle.Foreground = New SolidColorBrush(texto)
         logoGithub.Foreground = New SolidColorBrush(texto)
+        logoTwitter.Foreground = New SolidColorBrush(texto)
 
         Dim ph As New PaletteHelper
         Dim ibt As Theme

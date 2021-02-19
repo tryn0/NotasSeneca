@@ -1,6 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Globalization
 Imports System.Text.RegularExpressions
+Imports MaterialDesignThemes.Wpf
 
 Public Class Alumnado
     ' Obtengo Dashboard, Login y la conexión de Login
@@ -20,6 +21,12 @@ Public Class Alumnado
 
     Dim pos As Integer = 0
 
+    ' Tema
+    Public temaOscuro As Boolean
+    Dim oscuro As Color = ColorConverter.ConvertFromString("#FF00853E")
+    Dim blanco As Color = Colors.White
+    Dim negro As Color = Colors.Black
+
     ' Al cargar la ventana de Alumnado
     Private Sub alumnadoCargado()
         ' Obtengo la ventana Dashboard (Aparecen 2 en el listado de ventanas, por lo que escojo la que tiene el ComboBox con Name clases)
@@ -28,6 +35,7 @@ Public Class Alumnado
                 Dim auxiliar As Dashboard = w
                 If auxiliar.clases IsNot Nothing Then
                     padre = auxiliar
+                    temaOscuro = Not padre.temaOscuro
                 End If
             End If
         Next
@@ -35,12 +43,19 @@ Public Class Alumnado
         claseId = padre.clases.SelectedValue.ToString
         claseName = padre.clases.Text.ToString
 
+        ' Botones
+        ButtonAssist.SetCornerRadius(enviarNotaAlumno, New CornerRadius(5))
+        ButtonAssist.SetCornerRadius(salirBoton, New CornerRadius(5))
+        ButtonAssist.SetCornerRadius(siguiente, New CornerRadius(5))
+        ButtonAssist.SetCornerRadius(anterior, New CornerRadius(5))
+
         getInfoProfesor()
         getAlumnos()
 
         profeDNI.Text = profesorDni
         nombreClase.Text = claseName
         nombreClase.HorizontalAlignment = HorizontalAlignment.Center
+        cambiaTema()
     End Sub
 
     ' Obtengo todos los datos de todo el alumnado de la actual clase
@@ -269,5 +284,59 @@ Public Class Alumnado
     ' Al salir de Alumnado, abre Dashboard
     Private Sub salir()
         padre.Show()
+    End Sub
+
+    ' Cambia el color del tema
+    Private Sub cambiaTema()
+        If temaOscuro = False Then
+            setTema(blanco, negro)
+        Else
+            setTema(oscuro, blanco)
+        End If
+    End Sub
+
+    ' Cambio de tema
+    Private Sub setTema(fondo As Color, texto As Color)
+        ' Seteo de colores
+        principal.Background = New SolidColorBrush(fondo)
+        profeNombre.Foreground = New SolidColorBrush(texto)
+        profeDNI.Foreground = New SolidColorBrush(texto)
+        nombreClase.Foreground = New SolidColorBrush(texto)
+        nombreAlumno.Foreground = New SolidColorBrush(texto)
+        telefono.Foreground = New SolidColorBrush(texto)
+        direccion.Foreground = New SolidColorBrush(texto)
+        dni.Foreground = New SolidColorBrush(texto)
+        telefono_emergencia.Foreground = New SolidColorBrush(texto)
+        notaAlumno.Foreground = New SolidColorBrush(texto)
+        notaAsignatura.Foreground = New SolidColorBrush(texto)
+        clasesAlumno.Foreground = New SolidColorBrush(texto)
+
+        Dim ph As New PaletteHelper
+        Dim ibt As Theme
+
+        ' CAMBIAR URI POR LA RUTA EN EL PC
+        If texto = Colors.Black Then
+            'logoProfesor.Kind = MaterialDesignThemes.Wpf.PackIconKind.Account
+            'logoPwd.Kind = MaterialDesignThemes.Wpf.PackIconKind.Lock
+
+            ' Botones y tema
+            anterior.Foreground = New SolidColorBrush(fondo)
+            siguiente.Foreground = New SolidColorBrush(fondo)
+            enviarNotaAlumno.Foreground = New SolidColorBrush(fondo)
+            salirBoton.Foreground = New SolidColorBrush(oscuro)
+            ibt = Theme.Create(Theme.Light, oscuro, Colors.Blue)
+
+        Else
+            'logoProfesor.Kind = MaterialDesignThemes.Wpf.PackIconKind.AccountOutline
+            'logoPwd.Kind = MaterialDesignThemes.Wpf.PackIconKind.LockOutline
+
+            ' Botones y tema
+            anterior.Foreground = New SolidColorBrush(oscuro)
+            siguiente.Foreground = New SolidColorBrush(oscuro)
+            enviarNotaAlumno.Foreground = New SolidColorBrush(oscuro)
+            salirBoton.Foreground = New SolidColorBrush(texto)
+            ibt = Theme.Create(Theme.Dark, texto, Colors.Blue)
+        End If
+        ph.SetTheme(ibt)
     End Sub
 End Class

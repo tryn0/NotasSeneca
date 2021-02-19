@@ -9,7 +9,7 @@ Public Class Dashboard
     Public profeDni = login.profesor
 
     ' Tema
-    Public temaOscuro As Boolean = login.temaOscuro
+    Public temaOscuro As Boolean = Not login.temaOscuro
     Dim oscuro As Color = ColorConverter.ConvertFromString("#FF00853E")
     Dim blanco As Color = Colors.White
     Dim negro As Color = Colors.Black
@@ -44,7 +44,7 @@ Public Class Dashboard
     ' Dashboard cerrado, muestra login una vez cerrado
     Private Sub ventanaCerrada()
         ' Seteo del tema actual al tema del login
-        login.temaOscuro = temaOscuro
+        login.temaOscuro = Not temaOscuro
         login.cambiaTema()
 
         login.Show()
@@ -89,8 +89,8 @@ Public Class Dashboard
 
     ' Cambia el color del tema
     Private Sub cambiaTema()
-        login.temaOscuro = Not temaOscuro
-        If temaOscuro = True Then
+
+        If temaOscuro = False Then
             setTema(blanco, negro)
         Else
             setTema(oscuro, blanco)
@@ -105,6 +105,7 @@ Public Class Dashboard
         Menu.Background = New SolidColorBrush(fondo)
         menu.Foreground = New SolidColorBrush(texto)
         logoClases.Foreground = New SolidColorBrush(texto)
+        clases.Foreground = New SolidColorBrush(texto)
 
         Dim ph As New PaletteHelper
         Dim ibt As Theme
@@ -117,7 +118,6 @@ Public Class Dashboard
             verClasesProf.Foreground = New SolidColorBrush(fondo)
             verInfoProf.Foreground = New SolidColorBrush(fondo)
             verClase.Foreground = New SolidColorBrush(fondo)
-            clases.Foreground = New SolidColorBrush(oscuro)
             botonSalir.Foreground = New SolidColorBrush(oscuro)
             ibt = Theme.Create(Theme.Light, oscuro, Colors.Blue)
 
@@ -129,7 +129,6 @@ Public Class Dashboard
             verClasesProf.Foreground = New SolidColorBrush(oscuro)
             verInfoProf.Foreground = New SolidColorBrush(oscuro)
             verClase.Foreground = New SolidColorBrush(oscuro)
-            clases.Foreground = New SolidColorBrush(texto)
             botonSalir.Foreground = New SolidColorBrush(texto)
             ibt = Theme.Create(Theme.Dark, texto, Colors.Blue)
         End If

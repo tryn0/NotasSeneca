@@ -22,10 +22,13 @@ NotasSeneca es una app para el profesorado para subir las notas de sus alumnos a
 
 Tecnologías usadas para este proyecto
 
-- [VisalStudio](https://visualstudio.microsoft.com/es/vs/) - Visual Studio 2019
+- [VisualStudio](https://visualstudio.microsoft.com/es/vs/) - Visual Studio 2019
 - [SQLServer](https://docs.microsoft.com/es-es/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) - Microsoft SQL Server
 - [MaterialDesignXAMLToolkit](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit) - IU para XAML
 
+
+![Visual Studio](web/images/VS64.png "Visual Studio Developer 2019")
+![SSMS](web/images/SSMS64.png "SQL Server Management Studio")
 ![Interfaz de Material Design XAML](web/images/MD4XAML64.png "Material Design In XAML Toolkit")
 
 ## Instalación
