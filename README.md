@@ -3,7 +3,6 @@
 
 NotasSeneca es una app para el profesorado para subir las notas de sus alumnos a una BD, inspirada en Séneca usada por la Junta de Andalucía
 
-![Interfaz de Material Design XAML](web/images/MD4XAML64.png "Material Design In XAML Toolkit")
 
 - El profesorado podrá poner/actualizar notas a su alumnado, de sus clases
 - Además podrá actualizar sus datos de la BD
@@ -24,10 +23,10 @@ NotasSeneca es una app para el profesorado para subir las notas de sus alumnos a
 Tecnologías usadas para este proyecto
 
 - [VisalStudio](https://visualstudio.microsoft.com/es/vs/) - Visual Studio 2019
-- [MaterialDesignXAMLToolkit](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit) - IU para XAML
 - [SQLServer](https://docs.microsoft.com/es-es/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) - Microsoft SQL Server
-- [Twitter Bootstrap] - great UI boilerplate for modern web apps
+- [MaterialDesignXAMLToolkit](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit) - IU para XAML
 
+![Interfaz de Material Design XAML](web/images/MD4XAML64.png "Material Design In XAML Toolkit")
 
 ## Instalación
 
