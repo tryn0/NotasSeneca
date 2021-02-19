@@ -1,0 +1,63 @@
+﻿<Window x:Class="Alumnado"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NotasSeneca"
+        mc:Ignorable="d"
+        Title="Notas Séneca | Alumnado" Height="450" Width="800" Loaded="alumnadoCargado" MaxHeight="450" MaxWidth="800" MinHeight="450" MinWidth="800" Closed="salir">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Datos del profesor -->
+        <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock TextAlignment="Center" Name="profeNombre" FontSize="20" FontWeight="Bold">NOMBRE</TextBlock>
+            <TextBlock TextAlignment="Center" Name="profeDNI">DNI</TextBlock>
+        </StackPanel>
+
+        <!-- Nombre de la clase -->
+        <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock TextAlignment="Center" Name="nombreClase" FontSize="20" FontWeight="Bold">CLASE NOMBRE</TextBlock>
+        </StackPanel>
+
+        <!-- Nombre del alumno -->
+        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock TextAlignment="Center" Name="nombreAlumno" FontSize="20" FontWeight="Bold">ALUMNO NOMBRE</TextBlock>
+        </StackPanel>
+        
+        <!-- Datos del alumno -->
+        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock TextAlignment="Center" Name="telefono">TELEFONO ALUMNO</TextBlock>
+            <TextBlock TextAlignment="Center" Name="dni">DNI ALUMNO</TextBlock>
+            <TextBlock TextAlignment="Center" Name="direccion">DIRECCION ALUMNO</TextBlock>
+            <TextBlock TextAlignment="Center" Name="telefono_emergencia">TELEFONO EMERGENCIA ALUMNO</TextBlock>
+
+            <TextBlock TextAlignment="Center" Margin="0,25,0,0">Nota del alumno:</TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <ComboBox Name="clasesAlumno" Margin="0,10,0,0" Height="20" Width="110"></ComboBox>
+                <TextBox Height="20" Width="25" Margin="10,10,0,0" Visibility="Hidden" Name="notaAsignatura"></TextBox>
+            </StackPanel>
+            <Button Width="50" Margin="0,10,0,0" Visibility="Hidden" Name="enviarNotaAlumno">Enviar</Button>
+        </StackPanel>
+
+        <!-- Botonera alumnado -->
+        <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center">
+            <Button Grid.Column="2" Grid.Row="3" Height="25" Width="75" Margin="0,0,50,0" Visibility="Hidden" Name="anterior" Click="anterior_alumno">Anterior</Button>
+            <Button Grid.Column="2" Grid.Row="3" Height="25" Width="75" Margin="50,0,0,0" Click="siguiente_alumno" Name="siguiente">Siguiente</Button>
+        </StackPanel>
+
+        <!-- Botón salir -->
+        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center">
+            <Button Width="75" Height="25" Click="salirAlumnado">Salir</Button>
+        </StackPanel>
+        
+    </Grid>
+</Window>
