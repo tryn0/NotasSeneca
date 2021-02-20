@@ -18,43 +18,53 @@
     
     <!-- Color de la JUNTA VERDE #FF00853E -->
 
-    <StackPanel Orientation="Vertical" Background="White" Name="principal">
-        <!-- Menú -->
-        <StackPanel Orientation="Vertical">
-            <Menu Width="Auto" Background="White" Foreground="#FF00853E" Name="menu">
-                <MenuItem Header="_Opciones" >
-                    <MenuItem Header="_Tema color" Name="tema" Click="cambiaTema"/>
-                    <MenuItem Header="_Salir" Click="cerrarTodo"/>
-                </MenuItem>
-            </Menu>
-        </StackPanel>
-
-        <!-- Formulario -->
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Margin="0,5,0,0">
-            
-            <!-- Imagen de cabecera -->
-            <Image Name="cabecera" Stretch="UniformToFill" Margin="0,0,0,15" Source="notas-seneca-logo-verde.png"/>
-            
-            <!-- DNI profesor -->
-            <TextBlock Name="textoProfesor" TextAlignment="Center" Margin="0,0,0,20" FontSize="36" FontFamily="Bahnschrift Light">Profesor</TextBlock>
-            <!-- Logo y textbox DNI -->
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,30">
-                <materialDesign:PackIcon Kind="AccountOutline" Height="25" Width="20" Name="logoProfesor"/>
-                <TextBox Name="dni" KeyDown="enterPresionado" Width="180" materialDesign:HintAssist.Hint="NIF" materialDesign:HintAssist.HelperText="NIF del/a profesor/a" />
+    <Grid>
+        
+        <StackPanel Orientation="Vertical" Background="White" Name="principal">
+            <!-- Menú -->
+            <StackPanel Orientation="Vertical">
+                <Menu Width="Auto" Background="White" Foreground="#FF00853E" Name="menu">
+                    <MenuItem Header="_Opciones" >
+                        <MenuItem Header="_Tema color" Name="tema" Click="cambiaTema"/>
+                        <MenuItem Header="_Salir" Click="cerrarTodo"/>
+                    </MenuItem>
+                </Menu>
             </StackPanel>
 
-            <!-- Contraseña profesor -->
-            <TextBlock Name="textoPass" TextAlignment="Center" Margin="0,0,0,20" FontSize="36" FontFamily="Bahnschrift Light">Contraseña</TextBlock>
-            <!-- Logo y textbox de contraseña -->
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,40">
-                <materialDesign:PackIcon Kind="LockOutline" Height="25" Width="20" Name="logoPwd"/>
-                <PasswordBox Name="pwd" IsEnabled="False" Width="180" KeyDown="enterPresionado"/>
-            </StackPanel>
+            <!-- Formulario -->
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Margin="0,5,0,0">
 
-            <!-- Botonera -->
-            <Button Width="115" Height="30" Margin="0,10,0,0" Click="login_Click" Name="botonLogin">Iniciar Sesión</Button>
-            <Button Width="90" Height="30" Margin="0,15,0,0" Click="cerrarTodo" Name="botonSalir" Style="{DynamicResource MaterialDesignFlatButton}">Salir</Button>
-            
+                <!-- Imagen de cabecera -->
+                <Image Name="cabecera" Stretch="UniformToFill" Margin="0,0,0,15" Source="notas-seneca-logo-verde.png"/>
+
+                <!-- DNI profesor -->
+                <TextBlock Name="textoProfesor" TextAlignment="Center" Margin="0,0,0,20" FontSize="36" FontFamily="Bahnschrift Light">Profesor</TextBlock>
+                <!-- Logo y textbox DNI -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,30">
+                    <materialDesign:PackIcon Kind="AccountOutline" Height="25" Width="20" Name="logoProfesor"/>
+                    <TextBox Name="dni" KeyDown="enterPresionado" Width="180" materialDesign:HintAssist.Hint="NIF" materialDesign:HintAssist.HelperText="NIF del/a profesor/a" />
+                </StackPanel>
+
+                <!-- Contraseña profesor -->
+                <TextBlock Name="textoPass" TextAlignment="Center" Margin="0,0,0,20" FontSize="36" FontFamily="Bahnschrift Light">Contraseña</TextBlock>
+
+                <!-- Logo y textbox de contraseña -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,40">
+                    <materialDesign:PackIcon Kind="LockOutline" Height="25" Width="20" Name="logoPwd"/>
+                    <PasswordBox Name="pwd" IsEnabled="False" Width="155" KeyDown="enterPresionado" Visibility="Visible" LostFocus="passCambio"/>
+                    <Button Style="{DynamicResource MaterialDesignToolButton}" Width="25" Height="25" Name="botonVerPass" Click="verPass">
+                        <materialDesign:PackIcon Kind="EyeOutline" Height="25" Width="15" Name="verPassLogo" VerticalAlignment="Center"/>
+                    </Button>
+                </StackPanel>
+
+                <TextBox Name="passProfeText" Width="155" Margin="-5,-105,0,0" Height="25" Visibility="Hidden" TextChanged="passTextCambio"></TextBox>
+
+                <!-- Botonera -->
+                <Button Width="115" Height="30" Margin="0,10,0,0" Click="login_Click" Name="botonLogin">Iniciar Sesión</Button>
+                <Button Width="90" Height="30" Margin="0,15,0,0" Click="cerrarTodo" Name="botonSalir" Style="{DynamicResource MaterialDesignFlatButton}">Salir</Button>
+
+            </StackPanel>
         </StackPanel>
-    </StackPanel>
+    </Grid>
+    
 </Window>

@@ -1,0 +1,70 @@
+﻿<Window x:Class="Profesorado"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:NotasSeneca"
+        mc:Ignorable="d"
+        Title="Notas Séneca | Profesorado" Height="450" Width="800" MaxHeight="450" MaxWidth="800" MinHeight="450" MinWidth="800" Loaded="cargado" Closed="salir">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    
+    <Grid Name="principal">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.75*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.75*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Logo de la Junta de Andalucía -->
+        <Image Name="logoInfo" Grid.Column="0" Grid.Row="0" Source="junta-andalucia-logo-verde.png"/>
+
+        <!-- Nombre del profesorado -->
+        <TextBlock Name="nombre" Grid.Row="0" Grid.Column="1" FontFamily="Bahnschrift Light" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Center">Nombre</TextBlock>
+
+        <TextBox VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" materialDesign:HintAssist.HelperText="Contraseña" Name="passProfeText" Width="100" Height="25" Margin="0,100,0,0" Visibility="Hidden" TextChanged="passTextCambio"></TextBox>
+        <!-- Datos del profesorados que use la app -->
+        <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1">
+            <!-- DNI -->
+            <StackPanel Orientation="Horizontal" Width="150" Margin="0,10,0,0">
+                <materialDesign:PackIcon Kind="AccountOutline" Height="25" Width="20" Name="logoProfesor" Margin="0,0,5,0"/>
+                <TextBox VerticalAlignment="Top" IsEnabled="False" materialDesign:HintAssist.HelperText="NIF" Name="dniProfe" Width="100">NIF</TextBox>
+            </StackPanel>
+            
+            <!-- Teléfono -->
+            <StackPanel Orientation="Horizontal" Width="150" Margin="0,20,0,0">
+                <materialDesign:PackIcon Kind="PhoneOutline" Height="25" Width="20" Name="telefonoLogo" Margin="0,0,5,0"/>
+                <TextBox VerticalAlignment="Top" materialDesign:HintAssist.HelperText="Teléfono" Name="telefonoText" Width="100"></TextBox>
+            </StackPanel>
+
+            <!-- Contraseña -->
+            <StackPanel Orientation="Horizontal" Width="150" Margin="0,20,0,0">
+                <materialDesign:PackIcon Kind="LockOutline" Height="25" Width="20" Name="passLogo" Margin="0,0,5,0"/>
+                <PasswordBox VerticalAlignment="Top" materialDesign:HintAssist.HelperText="Contraseña" Name="passProfe" Width="100" LostFocus="passCambio"></PasswordBox>
+                <Button Style="{DynamicResource MaterialDesignToolButton}" Width="25" Height="25" Name="botonVerPass" Click="verPass">
+                    <materialDesign:PackIcon Kind="EyeOutline" Height="25" Width="15" Name="verPassLogo" VerticalAlignment="Center"/>
+                </Button>
+            </StackPanel>
+
+            <!-- Dirección -->
+            <StackPanel Orientation="Horizontal" Width="150" Margin="0,20,0,0">
+                <materialDesign:PackIcon Kind="MapMarkeroutline" Height="25" Width="20" Name="direccionLogo" Margin="0,0,5,0"/>
+                <TextBox VerticalAlignment="Top" materialDesign:HintAssist.HelperText="Dirección" Name="direccion" Width="100"></TextBox>
+            </StackPanel>
+
+            <Button Name="botonEnviar" Margin="0,40,0,0" Width="95" Height="30" Click="updateProfe">Actualizar</Button>
+            
+        </StackPanel>
+    </Grid>
+    
+</Window>

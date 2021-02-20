@@ -54,6 +54,16 @@ NotasSeneca
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="T:NotasSeneca.Profesorado">
+<summary>
+Profesorado
+</summary>
+</member>
+<member name="M:NotasSeneca.Profesorado.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
 <member name="T:NotasSeneca.Alumnado">
 <summary>
 Alumnado

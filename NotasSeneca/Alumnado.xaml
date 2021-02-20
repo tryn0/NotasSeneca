@@ -35,7 +35,8 @@
 
         <!-- Nombre de la clase -->
         <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock TextAlignment="Center" Name="nombreClase" FontSize="20" FontWeight="Bold">CLASE NOMBRE</TextBlock>
+            <TextBlock TextAlignment="Center" Name="nombreClaseTitle" FontSize="20" FontWeight="Bold">Clase</TextBlock>
+            <TextBlock TextAlignment="Center" Name="nombreClase" FontSize="16">CLASE NOMBRE</TextBlock>
         </StackPanel>
 
         <!-- Nombre del alumno -->

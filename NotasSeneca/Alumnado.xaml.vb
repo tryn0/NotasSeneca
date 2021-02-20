@@ -23,7 +23,7 @@ Public Class Alumnado
 
     ' Tema
     Public temaOscuro As Boolean
-    Dim oscuro As Color = ColorConverter.ConvertFromString("#FF00853E")
+    Dim oscuro As Color = login.oscuro
     Dim blanco As Color = Colors.White
     Dim negro As Color = Colors.Black
 
@@ -55,6 +55,7 @@ Public Class Alumnado
         profeDNI.Text = profesorDni
         nombreClase.Text = claseName
         nombreClase.HorizontalAlignment = HorizontalAlignment.Center
+        nombreClase.TextAlignment = TextAlignment.Center
         cambiaTema()
     End Sub
 
@@ -301,6 +302,7 @@ Public Class Alumnado
         principal.Background = New SolidColorBrush(fondo)
         profeNombre.Foreground = New SolidColorBrush(texto)
         profeDNI.Foreground = New SolidColorBrush(texto)
+        nombreClaseTitle.Foreground = New SolidColorBrush(texto)
         nombreClase.Foreground = New SolidColorBrush(texto)
         nombreAlumno.Foreground = New SolidColorBrush(texto)
         telefono.Foreground = New SolidColorBrush(texto)
@@ -314,11 +316,7 @@ Public Class Alumnado
         Dim ph As New PaletteHelper
         Dim ibt As Theme
 
-        ' CAMBIAR URI POR LA RUTA EN EL PC
         If texto = Colors.Black Then
-            'logoProfesor.Kind = MaterialDesignThemes.Wpf.PackIconKind.Account
-            'logoPwd.Kind = MaterialDesignThemes.Wpf.PackIconKind.Lock
-
             ' Botones y tema
             anterior.Foreground = New SolidColorBrush(fondo)
             siguiente.Foreground = New SolidColorBrush(fondo)
@@ -327,9 +325,6 @@ Public Class Alumnado
             ibt = Theme.Create(Theme.Light, oscuro, Colors.Blue)
 
         Else
-            'logoProfesor.Kind = MaterialDesignThemes.Wpf.PackIconKind.AccountOutline
-            'logoPwd.Kind = MaterialDesignThemes.Wpf.PackIconKind.LockOutline
-
             ' Botones y tema
             anterior.Foreground = New SolidColorBrush(oscuro)
             siguiente.Foreground = New SolidColorBrush(oscuro)

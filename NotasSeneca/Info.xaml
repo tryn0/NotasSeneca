@@ -25,8 +25,8 @@
             <TextBlock Name="titulo" FontFamily="Bahnschrift Light" FontSize="36">Notas Séneca</TextBlock>
         </StackPanel>
 
-        <StackPanel Orientation="Vertical" Margin="60" Grid.Column="1" Grid.Row="1">
-            <TextBlock Name="textoDetalle">
+        <StackPanel Orientation="Vertical" Margin="50" Grid.Column="1" Grid.Row="1">
+            <TextBlock Name="textoDetalle" FontSize="14">
                 Notas Séneca es una aplicación hecha en WPF XAML VB.NET <LineBreak/>
                 Realizada para el módulo de Desarrollo de Interfaces de 2º DAM  <LineBreak/><LineBreak/>
                 No está permitido la copia o distribución del código de ninguna forma <LineBreak />

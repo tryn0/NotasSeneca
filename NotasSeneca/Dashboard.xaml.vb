@@ -10,7 +10,7 @@ Public Class Dashboard
 
     ' Tema
     Public temaOscuro As Boolean = Not login.temaOscuro
-    Dim oscuro As Color = ColorConverter.ConvertFromString("#FF00853E")
+    Dim oscuro As Color = login.oscuro
     Dim blanco As Color = Colors.White
     Dim negro As Color = Colors.Black
 
@@ -32,8 +32,8 @@ Public Class Dashboard
     Private Sub infoClick(sender As Object, e As RoutedEventArgs)
         Dim info As New Info()
         info.Owner = Me
-        info.Show()
         Me.Hide()
+        info.Show()
     End Sub
 
     ' Cerrar toda las ventanas
@@ -83,13 +83,12 @@ Public Class Dashboard
     Private Sub verClase_Click(sender As Object, e As RoutedEventArgs) Handles verClase.Click
         Dim alumnado As New Alumnado()
         alumnado.Owner = Me
-        alumnado.Show()
         Me.Hide()
+        alumnado.Show()
     End Sub
 
     ' Cambia el color del tema
     Private Sub cambiaTema()
-
         If temaOscuro = False Then
             setTema(blanco, negro)
         Else
@@ -133,6 +132,11 @@ Public Class Dashboard
             ibt = Theme.Create(Theme.Dark, texto, Colors.Blue)
         End If
         ph.SetTheme(ibt)
+    End Sub
 
+    Private Sub verInfoProf_Click(sender As Object, e As RoutedEventArgs) Handles verInfoProf.Click
+        Dim profe As New Profesorado
+        Me.Hide()
+        profe.Show()
     End Sub
 End Class

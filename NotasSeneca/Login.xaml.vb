@@ -9,12 +9,15 @@ Class Login
     Public con As New SqlConnection("data source=HP-OMEN-GUILLER;initial catalog=seneca;integrated security=true;persist security info=True;")
     ' Datos del profe
     Public profesor As String
+    Public id_profe As String
 
     ' Tema
     Public temaOscuro As Boolean = True
-    Dim oscuro As Color = ColorConverter.ConvertFromString("#FF00853E")
+    Public oscuro As Color = ColorConverter.ConvertFromString("#FF00853E")
     Dim blanco As Color = Colors.White
     Dim negro As Color = Colors.Black
+
+    Dim isPassShowed As Boolean = False
 
     ' Al cargar Login
     Private Sub cargado()
@@ -31,6 +34,44 @@ Class Login
         ButtonAssist.SetCornerRadius(botonSalir, New CornerRadius(15))
 
         cambiaTema()
+        dni.Focus()
+    End Sub
+
+    ' Toggle ver contraseña
+    Private Sub verPass()
+        If verPassLogo.Kind = MaterialDesignThemes.Wpf.PackIconKind.EyeOutline Or verPassLogo.Kind = MaterialDesignThemes.Wpf.PackIconKind.Eye Then
+            ' Cambio de icono según el estado inicial (Ver contraseña)
+            If Not temaOscuro = True Then
+                verPassLogo.Kind = MaterialDesignThemes.Wpf.PackIconKind.EyeOffOutline
+            Else
+                verPassLogo.Kind = MaterialDesignThemes.Wpf.PackIconKind.EyeOff
+            End If
+
+            pwd.Visibility = Visibility.Hidden
+            passProfeText.Visibility = Visibility.Visible
+            passProfeText.SelectionStart = passProfeText.Text.Length
+            isPassShowed = True
+        Else
+            If Not temaOscuro = True Then
+                verPassLogo.Kind = MaterialDesignThemes.Wpf.PackIconKind.EyeOutline
+            Else
+                verPassLogo.Kind = MaterialDesignThemes.Wpf.PackIconKind.Eye
+            End If
+            pwd.Visibility = Visibility.Visible
+            passProfeText.Visibility = Visibility.Hidden
+            isPassShowed = False
+        End If
+
+    End Sub
+
+    ' Igualo la contraseña visible al perder el foco el PasswordBox
+    Private Sub passCambio()
+        passProfeText.Text = pwd.Password.Trim
+    End Sub
+
+    ' Igualo el PasswordBox al escribir en la contraseña visible
+    Private Sub passTextCambio()
+        pwd.Password = passProfeText.Text.Trim
     End Sub
 
     ' Login del profesor
@@ -42,6 +83,7 @@ Class Login
             ' Si la consulta devuelve datos, existe profesor con esa contraseña
             While rdr.Read()
                 existe = True
+                id_profe = rdr.GetInt32(0).ToString
             End While
             rdr.Close()
         End Using
@@ -51,8 +93,8 @@ Class Login
         If existe Then
             profesor = dni.Text.Trim
 
-            abrirDashboard()
             Me.Hide()
+            abrirDashboard()
         Else
             MsgBox("Profesor no encontrado, revise el NIF y/o la contraseña")
         End If
@@ -63,9 +105,11 @@ Class Login
         If dni.Text.Length > 0 Then
             pwd.IsEnabled = True
             HintAssist.SetHint(pwd, "Contraseña") ' Seteo de Hint en la contraseña solo si hay algo escrito en el NIF
+            HintAssist.SetHint(passProfeText, "Contraseña")
         Else
             pwd.IsEnabled = False
             HintAssist.SetHint(pwd, "")
+            HintAssist.SetHint(passProfeText, "")
         End If
     End Sub
 
@@ -111,6 +155,8 @@ Class Login
         pwd.Foreground = New SolidColorBrush(texto)
         logoPwd.Foreground = New SolidColorBrush(texto)
         logoProfesor.Foreground = New SolidColorBrush(texto)
+        verPassLogo.Foreground = New SolidColorBrush(texto)
+        passProfeText.Foreground = New SolidColorBrush(texto)
 
         Dim ph As New PaletteHelper
         Dim ibt As Theme
@@ -127,6 +173,13 @@ Class Login
             botonSalir.Foreground = New SolidColorBrush(oscuro)
             ibt = Theme.Create(Theme.Light, oscuro, Colors.Blue)
 
+            ' Logo ver pass
+            If isPassShowed = True Then
+                verPassLogo.Kind = MaterialDesignThemes.Wpf.PackIconKind.EyeOff
+            Else
+                verPassLogo.Kind = MaterialDesignThemes.Wpf.PackIconKind.Eye
+            End If
+
         Else
             cabecera.Source = New BitmapImage(New Uri("D:\DAM\DI\ProyectoXML\NotasSeneca\NotasSeneca\notas-seneca-logo-blanco.png"))
             logoProfesor.Kind = MaterialDesignThemes.Wpf.PackIconKind.AccountOutline
@@ -137,6 +190,14 @@ Class Login
             botonLogin.Foreground = New SolidColorBrush(oscuro)
             botonSalir.Foreground = New SolidColorBrush(texto)
             ibt = Theme.Create(Theme.Dark, texto, Colors.Blue)
+
+            ' Logo ver pass
+            If isPassShowed = True Then
+                verPassLogo.Kind = MaterialDesignThemes.Wpf.PackIconKind.EyeOffOutline
+            Else
+                verPassLogo.Kind = MaterialDesignThemes.Wpf.PackIconKind.EyeOutline
+            End If
+
         End If
         ph.SetTheme(ibt)
 

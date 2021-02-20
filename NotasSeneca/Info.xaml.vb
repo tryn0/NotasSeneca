@@ -7,7 +7,7 @@ Public Class Info
 
     ' Tema
     Dim temaOscuro As Boolean = False
-    Dim oscuro As Color = ColorConverter.ConvertFromString("#FF00853E")
+    Dim oscuro As Color = login.oscuro
     Dim blanco As Color = Colors.White
     Dim negro As Color = Colors.Black
 
@@ -50,18 +50,17 @@ Public Class Info
         If texto = Colors.Black Then
             logoInfo.Source = New BitmapImage(New Uri("D:\DAM\DI\ProyectoXML\NotasSeneca\NotasSeneca\junta-andalucia-logo-verde.png"))
 
-            ' Botones y tema
+            ' Tema
             ibt = Theme.Create(Theme.Light, oscuro, Colors.Blue)
 
         Else
             logoInfo.Source = New BitmapImage(New Uri("D:\DAM\DI\ProyectoXML\NotasSeneca\NotasSeneca\junta-andalucia-logo-blanco.png"))
 
-            ' Botones y tema
+            ' Tema
             ibt = Theme.Create(Theme.Dark, texto, Colors.Blue)
 
         End If
         ph.SetTheme(ibt)
-
     End Sub
 
     ' Redireccion al sitio web del HyperLink en el navegador

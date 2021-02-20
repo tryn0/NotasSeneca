@@ -27,3 +27,5 @@ D:\DAM\DI\ProyectoXML\NotasSeneca\NotasSeneca\bin\Debug\MaterialDesignColors.pdb
 D:\DAM\DI\ProyectoXML\NotasSeneca\NotasSeneca\bin\Debug\MaterialDesignThemes.Wpf.pdb
 D:\DAM\DI\ProyectoXML\NotasSeneca\NotasSeneca\bin\Debug\MaterialDesignThemes.Wpf.xml
 D:\DAM\DI\ProyectoXML\NotasSeneca\NotasSeneca\obj\Debug\NotasSeneca.vbproj.CopyComplete
+D:\DAM\DI\ProyectoXML\NotasSeneca\NotasSeneca\obj\Debug\Profesorado.g.vb
+D:\DAM\DI\ProyectoXML\NotasSeneca\NotasSeneca\obj\Debug\Profesorado.baml
