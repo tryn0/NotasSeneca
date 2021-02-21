@@ -17,14 +17,16 @@
     </Window.Resources>
 
     <Grid Name="principal">
+        <TextBlock Visibility="Hidden" Name="trigger">dash</TextBlock>
         <!-- Menú -->
         <StackPanel Orientation="Vertical">
             <Menu Width="Auto" Name="menu">
                 <MenuItem Header="_Opciones">
-                    <MenuItem Header="_Cerrar sesión" Click="logout" />
+                    <MenuItem Header="_Ver informe" Click="informe"/>
                     <MenuItem Header="_Detalles" Click="infoClick"/>
                     <MenuItem Header="_Tema oscuro" Name="tema" Click="cambiaTema"/>
                     <Separator />
+                    <MenuItem Header="_Cerrar sesión" Click="logout" />
                     <MenuItem Header="_Salir" Click="salir"/>
                 </MenuItem>
             </Menu>

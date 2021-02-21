@@ -271,7 +271,9 @@ Public Class Alumnado
                 End If
                 notaExistente = True
             Else
-                notaAsignatura.Text = ""
+                If i = 1 Then
+                    notaAsignatura.Text = ""
+                End If
                 notaExistente = False
             End If
         End If

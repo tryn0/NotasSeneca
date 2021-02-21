@@ -134,9 +134,17 @@ Public Class Dashboard
         ph.SetTheme(ibt)
     End Sub
 
+    ' Ver información del profesorado que usa la app
     Private Sub verInfoProf_Click(sender As Object, e As RoutedEventArgs) Handles verInfoProf.Click
         Dim profe As New Profesorado
         Me.Hide()
         profe.Show()
+    End Sub
+
+    ' Abre la ventana de informes
+    Private Sub informe()
+        Me.Hide()
+        Dim inf As New Informe
+        inf.Show()
     End Sub
 End Class

@@ -54,6 +54,16 @@ NotasSeneca
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="T:NotasSeneca.Informe">
+<summary>
+Informe
+</summary>
+</member>
+<member name="M:NotasSeneca.Informe.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
 <member name="T:NotasSeneca.Profesorado">
 <summary>
 Profesorado
@@ -62,6 +72,191 @@ Profesorado
 <member name="M:NotasSeneca.Profesorado.InitializeComponent">
 <summary>
 InitializeComponent
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSet">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSet.alumnosDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSet.asignaturasDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSet.clasesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSet.clases_alumnosDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSet.clases_asignaturasDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSet.notas_alumnosDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSet.profesoresDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSet.alumnosRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSet.asignaturasRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSet.clasesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSet.clases_alumnosRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSet.clases_asignaturasRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSet.notas_alumnosRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSet.profesoresRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSet.alumnosRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSet.asignaturasRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSet.clasesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSet.clases_alumnosRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSet.clases_asignaturasRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSet.notas_alumnosRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSet.profesoresRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSetTableAdapters.alumnosTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSetTableAdapters.asignaturasTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSetTableAdapters.clasesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSetTableAdapters.clases_alumnosTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSetTableAdapters.clases_asignaturasTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSetTableAdapters.notas_alumnosTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSetTableAdapters.profesoresTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSetTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:NotasSeneca.senecaDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(NotasSeneca.senecaDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:NotasSeneca.senecaDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(NotasSeneca.senecaDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:NotasSeneca.senecaDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(NotasSeneca.senecaDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:NotasSeneca.senecaDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:NotasSeneca.senecaDataSetTableAdapters.TableAdapterManager.UpdateAll(NotasSeneca.senecaDataSet)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:NotasSeneca.senecaDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
 </summary>
 </member>
 <member name="T:NotasSeneca.Alumnado">

@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:NotasSeneca"
         mc:Ignorable="d"
-        Title="Notas Séneca | Login" Height="500" Width="350"  MaxHeight="500" MaxWidth="350" Closed="cerrarTodo" Loaded="cargado">
+        Title="Notas Séneca | Login" Height="510" Width="350"  MaxHeight="510" MaxWidth="350" MinHeight="510" MinWidth="350" Closed="cerrarTodo" Loaded="cargado">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -15,8 +15,6 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-    
-    <!-- Color de la JUNTA VERDE #FF00853E -->
 
     <Grid>
         
@@ -62,7 +60,7 @@
                 <!-- Botonera -->
                 <Button Width="115" Height="30" Margin="0,10,0,0" Click="login_Click" Name="botonLogin">Iniciar Sesión</Button>
                 <Button Width="90" Height="30" Margin="0,15,0,0" Click="cerrarTodo" Name="botonSalir" Style="{DynamicResource MaterialDesignFlatButton}">Salir</Button>
-
+                
             </StackPanel>
         </StackPanel>
     </Grid>
