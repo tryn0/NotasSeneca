@@ -222,6 +222,7 @@
     <Resource Include="notas-seneca-logo-blanco.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="logo-app.png" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

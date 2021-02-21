@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:NotasSeneca"
         mc:Ignorable="d"
-        Title="Notas Séneca | Profesorado" Height="450" Width="800" MaxHeight="450" MaxWidth="800" MinHeight="450" MinWidth="800" Loaded="cargado" Closed="salir">
+        Title="Notas Séneca | Profesorado" Height="450" Width="800" MaxHeight="450" MaxWidth="800" MinHeight="450" MinWidth="800" Loaded="cargado" Closed="salir" Icon="logo-app.png">
 
     <Window.Resources>
         <ResourceDictionary>
