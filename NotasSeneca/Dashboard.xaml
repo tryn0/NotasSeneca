@@ -45,6 +45,10 @@
             <materialDesign:PackIcon Kind="accountGroup" Height="25" Width="20" Margin="45,175,0,0" Name="logoClases" Visibility="Hidden"/>
             <ComboBox Height="25" Width="100" HorizontalAlignment="Left" Margin="5,-45,0,0" Name="clases" Visibility="Hidden"/>
         </StackPanel>
+
+        <TextBlock TextAlignment="Center" VerticalAlignment="Bottom" Name="numAlumnos" Margin="0,0,0,105" FontSize="18">Nº de alumnos:</TextBlock>
+        <TextBlock TextAlignment="Center" Name="numClases"  VerticalAlignment="Bottom" Margin="0,0,0,80" FontSize="18">Nº de clases:</TextBlock>
+        <TextBlock TextAlignment="Center" Name="numAsignaturas"  VerticalAlignment="Bottom" Margin="0,0,0,55" FontSize="18">Nº de asignaturas:</TextBlock>
         
         <Button Width="125" Height="25" HorizontalAlignment="Left" Margin="50,50,0,0" Name="verClase" Visibility="Hidden">Ver clase</Button>
         <Button Width="75" Height="25" HorizontalAlignment="Left" Margin="150,350,0,0" Name="botonSalir" Click="salir" Style="{DynamicResource MaterialDesignFlatButton}">Salir</Button>

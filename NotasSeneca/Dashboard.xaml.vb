@@ -7,12 +7,18 @@ Public Class Dashboard
 
     ' Datos del profesor
     Public profeDni = login.profesor
+    Public id_profe = login.id_profe
 
     ' Tema
     Public temaOscuro As Boolean = Not login.temaOscuro
     Dim oscuro As Color = login.oscuro
     Dim blanco As Color = Colors.White
     Dim negro As Color = Colors.Black
+
+    ' Listados
+    Dim alumnos As New List(Of String)
+    Dim totalClases As New List(Of String)
+    Dim totalAsignaturas As New List(Of String)
 
     ' Al cargar la ventana
     Private Sub cargado()
@@ -22,7 +28,91 @@ Public Class Dashboard
         ButtonAssist.SetCornerRadius(verClase, New CornerRadius(5))
         ButtonAssist.SetCornerRadius(botonSalir, New CornerRadius(5))
         cambiaTema()
+
+        getAlumnos()
+        getClases()
+        getAsignaturas()
     End Sub
+
+    ' Obtengo todos los datos de todo el alumnado de la actual clase
+    Private Sub getAlumnos()
+        Dim con As SqlConnection = login.con
+        con.Open()
+        Dim cmd As New SqlCommand("select id_alumno from clases_alumnos where cod_clase in (select cod_clase from clases where cod_clase in (select cod_clase from clases_asignaturas where cod_asignatura in (select cod_asignatura from asignaturas where id_profesor = " + id_profe + ")))", con)
+        Dim ds As New Data.DataSet
+        Dim adapter As New SqlDataAdapter
+        adapter.SelectCommand = cmd
+
+        ' Obtengo datos
+        adapter.Fill(ds)
+
+        ' Cierro dataset, SqlCommand y Conexion
+        adapter.Dispose()
+        cmd.Dispose()
+        con.Close()
+
+        ' Recolección de alumnos en un Dictionary
+        For Each dato In ds.Tables(0).Rows
+            alumnos.Add(dato(0).ToString)
+        Next
+
+        ' Seteo la cantidad de alumnos en el textBlock
+        numAlumnos.Text += " " + alumnos.Count.ToString
+    End Sub
+
+    ' Obtengo todos los datos de todo el alumnado de la actual clase
+    Private Sub getClases()
+        Dim con As SqlConnection = login.con
+        con.Open()
+        Dim cmd As New SqlCommand("select * from clases where cod_clase in (select cod_clase from clases_asignaturas where cod_asignatura in (select cod_asignatura from asignaturas where id_profesor = " + id_profe + "))", con)
+        Dim ds As New Data.DataSet
+        Dim adapter As New SqlDataAdapter
+        adapter.SelectCommand = cmd
+
+        ' Obtengo datos
+        adapter.Fill(ds)
+
+        ' Cierro dataset, SqlCommand y Conexion
+        adapter.Dispose()
+        cmd.Dispose()
+        con.Close()
+
+        ' Recolección de alumnos en un Dictionary
+        For Each dato In ds.Tables(0).Rows
+            totalClases.Add(dato(0).ToString)
+        Next
+
+        ' Seteo la cantidad de alumnos en el textBlock
+        numClases.Text += " " + totalClases.Count.ToString
+
+    End Sub
+
+    ' Obtengo todos los datos de las asignaturas del profesorado que usa la app
+    Private Sub getAsignaturas()
+        Dim con As SqlConnection = login.con
+        con.Open()
+        Dim cmd As New SqlCommand("select * from asignaturas where id_profesor = " + id_profe, con)
+        Dim ds As New Data.DataSet
+        Dim adapter As New SqlDataAdapter
+        adapter.SelectCommand = cmd
+
+        ' Obtengo datos
+        adapter.Fill(ds)
+
+        ' Cierro dataset, SqlCommand y Conexion
+        adapter.Dispose()
+        cmd.Dispose()
+        con.Close()
+
+        ' Recolección de alumnos en un Dictionary
+        For Each dato In ds.Tables(0).Rows
+            totalAsignaturas.Add(dato(0).ToString)
+        Next
+
+        ' Seteo la cantidad de alumnos en el textBlock
+        numAsignaturas.Text += " " + totalAsignaturas.Count.ToString
+    End Sub
+
     ' Cerrar sesión (Cierra la ventana actual y con el CloseHandler muestra Login)
     Private Sub logout(sender As Object, e As RoutedEventArgs)
         Me.Close()
@@ -105,6 +195,10 @@ Public Class Dashboard
         menu.Foreground = New SolidColorBrush(texto)
         logoClases.Foreground = New SolidColorBrush(texto)
         clases.Foreground = New SolidColorBrush(texto)
+
+        numClases.Foreground = New SolidColorBrush(texto)
+        numAlumnos.Foreground = New SolidColorBrush(texto)
+        numAsignaturas.Foreground = New SolidColorBrush(texto)
 
         Dim ph As New PaletteHelper
         Dim ibt As Theme
